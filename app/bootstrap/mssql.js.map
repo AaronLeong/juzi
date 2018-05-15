@@ -1,0 +1,47 @@
+{
+    "version": 3,
+    "sources": [
+        "../../src/bootstrap/mssql.js"
+    ],
+    "names": [
+        "Connection",
+        "require",
+        "Request",
+        "defaultconfig",
+        "userName",
+        "password",
+        "server",
+        "options",
+        "database",
+        "exports",
+        "mssql",
+        "config",
+        "think",
+        "isEmpty",
+        "connection",
+        "query",
+        "str",
+        "callback",
+        "rows",
+        "on",
+        "err",
+        "console",
+        "log",
+        "request",
+        "rowCount",
+        "close",
+        "n",
+        "columns",
+        "forEach",
+        "column",
+        "metadata",
+        "colName",
+        "value",
+        "execSql"
+    ],
+    "mappings": "AAAA,IAAIA,aAAaC,QAAQ,SAAR,EAAmBD,UAApC;AACA,IAAIE,UAAUD,QAAQ,SAAR,EAAmBC,OAAjC;AACA,IAAIC,gBAAgB;AAChBC,cAAU,WADM;AAEhBC,cAAU,gBAFM;AAGhBC,YAAO,eAHS;AAIhBC,aAAS,EAACC,UAAU,WAAX;AAJO,CAApB;;AAOAC,QAAQC,KAAR,GAAgB,UAASC,MAAT,EAAgB;AAC/B,QAAGC,MAAMC,OAAN,CAAcF,MAAd,CAAH,EAAyB;AACxBA,iBAASR,aAAT;AACA;;AAEE,SAAKW,UAAL,GAAkB,IAAId,UAAJ,CAAeW,MAAf,CAAlB;;AAEA,SAAKI,KAAL,GAAa,UAASC,GAAT,EAAaC,QAAb,EAAsB;AAAW;AAC1C,YAAIH,aAAa,KAAKA,UAAtB;AACA,YAAII,OAAK,EAAT;AACAJ,mBAAWK,EAAX,CAAc,SAAd,EAAyB,UAASC,GAAT,EAAa;AAAkB;AACpD,gBAAGA,GAAH,EAAO;AACNC,wBAAQC,GAAR,CAAY,gBAAZ,EAA6BF,GAA7B;AACGH,yBAAS,EAAC,OAAMG,IAAI,SAAJ,IAAe,qBAAtB,EAAT;AACH,aAHD,MAGK;AACD,oBAAIG,UAAU,IAAIrB,OAAJ,CAAYc,GAAZ,EAAgB,UAASI,GAAT,EAAcI,QAAd,EAAuB;AACjD,wBAAGJ,GAAH,EAAOA,MAAM,EAAC,OAAMA,IAAI,SAAJ,CAAP,EAAN;AACPH,6BAASG,GAAT,EAAaF,IAAb;AACAJ,+BAAWW,KAAX;AACH,iBAJa,CAAd;;AAMA,oBAAIC,IAAE,CAAN;AACAH,wBAAQJ,EAAR,CAAW,KAAX,EAAkB,UAASQ,OAAT,EAAkB;AAA6B;AAC7DT,yBAAKQ,CAAL,IAAQ,EAAR;AACAC,4BAAQC,OAAR,CAAgB,UAASC,MAAT,EAAiB;AACzBX,6BAAKQ,CAAL,EAAQG,OAAOC,QAAP,CAAgBC,OAAxB,IAAmCF,OAAOG,KAA1C,CADyB,CAC+B;AAC/D,qBAFD;AAGAN;AACH,iBAND;;AAQAZ,2BAAWmB,OAAX,CAAmBV,OAAnB,EAhBC,CAgB4D;AAChE;AACJ,SAtBD;AAuBH,KA1BD;AA4BH,CAnCD",
+    "file": "../../src/bootstrap/mssql.js",
+    "sourcesContent": [
+        "var Connection = require('tedious').Connection;    \nvar Request = require('tedious').Request;    \nlet defaultconfig = {\n    userName: 'developer',\n    password: 'devel0per-user',\n    server:'202.115.75.13',\n    options: {database: 'FINX_TEST',}\n};\n\nexports.mssql = function(config){   \n\tif(think.isEmpty(config)){\n\t\tconfig = defaultconfig\n\t} \n\n    this.connection = new Connection(config);    \n        \n    this.query = function(str,callback){          //执行查询    \n        var connection = this.connection;    \n        var rows={};    \n        connection.on('connect', function(err){                 //连接数据库，执行匿名函数    \n            if(err){ \n            \tconsole.log('connection err',err)\n                callback({'err':err['message']+'请检查账号、密码是否正确,且数据库存在'});    \n            }else{    \n                var request = new Request(str,function(err, rowCount){      \n                    if(err)err = {'err':err['message']};    \n                    callback(err,rows);    \n                    connection.close();    \n                });    \n                    \n                var n=0;                        \n                request.on('row', function(columns) {                            //查询成功数据返回    \n                    rows[n]={};    \n                    columns.forEach(function(column) {    \n                            rows[n][column.metadata.colName] = column.value;        //获取数据              \n                    });    \n                    n++;    \n                });    \n                \n                connection.execSql(request);                                 //执行sql语句    \n            }    \n        });    \n    }    \n        \n} "
+    ]
+}

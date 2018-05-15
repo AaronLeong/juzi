@@ -1,0 +1,46 @@
+{
+    "version": 3,
+    "sources": [
+        "../../src/controller/itjuzi.js"
+    ],
+    "names": [
+        "charset",
+        "require",
+        "superagent",
+        "cookie",
+        "keyword",
+        "indexAction",
+        "success",
+        "companylistAction",
+        "text",
+        "pageNum",
+        "pageTotal",
+        "stopPage",
+        "page",
+        "_this",
+        "console",
+        "log",
+        "pageIndex",
+        "url",
+        "result",
+        "get",
+        "set",
+        "status",
+        "header",
+        "eval",
+        "data",
+        "page_num",
+        "page_total",
+        "rows",
+        "lenght",
+        "model",
+        "mongo",
+        "res",
+        "addMany"
+    ],
+    "mappings": "AAAA;;;;AAEA;;;;;;;;AAEA,MAAMA,UAAUC,QAAQ,oBAAR,CAAhB;AACA,MAAMC,aAAaF,QAAQC,QAAQ,YAAR,CAAR,CAAnB;AACA;;AAEA;AACA,IAAIE,SAAS,EAAb;AACA,MAAMC,UAAU,MAAhB;;kBAEe,6BAAmB;;AAE1BC,aAAN,GAAoB;AAAA;;AAAA;;AAGlB,aAAO,OAAKC,OAAL,EAAP;AAHkB;AAInB;;AAIKC,mBAAN,GAA0B;AAAA;;AAAA;;AAExB,aAAO,OAAKD,OAAL,EAAP;AACA,UAAIE,IAAJ;AACA,UAAIC,UAAU,CAAd;AACA,UAAIC,YAAY,CAAhB,CALwB,CAKL;AACnB,UAAIC,WAAW,CAAf;AACA,YAAMC,OAAO,CAAb;AACA,YAAMC,cAAN;;AAEAC,cAAQC,GAAR,CAAYX,OAAZ,EAAqBQ,IAArB;AACA;;;;AAIA,WAAK,IAAII,YAAY,IAArB,EAA2BA,aAAaN,SAAxC,EAAmDM,WAAnD,EAAgE;AAC9D,cAAMC,MAAM,kDAAkDD,SAA9D;;AAEAF,gBAAQC,GAAR,CAAY,wBAAZ,EAAsCE,GAAtC;AACA,cAAMC,SAAS,MAAMhB,WAAWiB,GAAX,CAAeF,GAAf,EAClBjB,OADkB,CACV,OADU,EAElBoB,GAFkB,CAEd,QAFc,EAEJ,gDAFI,EAGlBA,GAHkB,CAGd,iBAHc,EAGK,eAHL,EAIlBA,GAJkB,CAId,iBAJc,EAIK,8CAJL,EAKlBA,GALkB,CAKd,YALc,EAKA,YALA,EAMlBA,GANkB,CAMd,cANc,EAME,kBANF,EAOlBA,GAPkB,CAOd,QAPc,EAOJ,gqBAPI,EAQlBA,GARkB,CAQd,MARc,EAQN,kBARM,EASlBA,GATkB,CASd,SATc,EASH,iCATG,EAUlBA,GAVkB,CAUd,YAVc,EAUA,2HAVA,EAWlBA,GAXkB,CAWd,kBAXc,EAWM,gBAXN,CAArB;;AAaA,YAAIF,OAAOG,MAAP,KAAkB,GAAtB,EAA2B;AACzBlB,mBAASe,OAAOI,MAAP,CAAc,YAAd,CAAT,CADyB,CACa;AACtC;AACAd,iBAAOe,KAAK,MAAML,OAAOV,IAAb,GAAoB,GAAzB,CAAP;AACA;AACA;AACA;AACA;AACA;AACA;AACAC,oBAAUD,KAAKgB,IAAL,CAAUC,QAAV,GAAqB,CAA/B;AACAf,sBAAYF,KAAKgB,IAAL,CAAUE,UAAtB;AACA,cAAIlB,KAAKa,MAAL,KAAgB,CAApB,EAAuB;AACrB,gBAAIb,KAAKgB,IAAL,CAAUG,IAAV,CAAeC,MAAf,GAAwB,CAA5B,EAA+B,CAE9B;AACF,WAJD,MAIO;AACL,gBAAIjB,aAAa,CAAjB,EAAoB;AAClBA,yBAAWF,OAAX;AACD;AACDK,oBAAQC,GAAR,CAAY,eAAZ,EAA6BJ,QAA7B;AACD;AACF;AACD;AACA,cAAMkB,QAAQ,OAAKC,KAAL,CAAW,SAAX,CAAd;AACA,cAAMC,MAAM,MAAMF,MAAMG,OAAN,CAAcxB,KAAKgB,IAAL,CAAUG,IAAxB,CAAlB;;AAEAb,gBAAQC,GAAR,CAAY,MAAZ,EAAoBgB,GAApB;;AAEA;AACA;AACAjB,gBAAQC,GAAR,CAAY,eAAZ,EAA6B,YAA7B,EAA2CC,SAA3C;AACA;AACD;;AAED;AACA;AACA;;AAEA,aAAO,OAAKV,OAAL,EAAP;AAvEwB;AAwEzB;AAlF+B,C;;AAqFlC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA",
+    "file": "../../src/controller/itjuzi.js",
+    "sourcesContent": [
+        "'use strict';\n\nimport Base from './base.js';\n\nconst charset = require('superagent-charset');\nconst superagent = charset(require('superagent'));\n// const superagent = charset(require('superagent'));\n\n// let skuIdList = [];\nlet cookie = '';\nconst keyword = 'IT桔子';\n\nexport default class extends Base {\n\n  async indexAction() {\n\n\n    return this.success();\n  }\n\n\n\n  async companylistAction() {\n\n    return this.success()\n    let text;\n    let pageNum = 0;\n    let pageTotal = 0; // 5179;\n    let stopPage = 0;\n    const page = 1;\n    const _this = this;\n\n    console.log(keyword, page);\n    /**\n     * 103570\n     * 1307 蓝狐笔记\n     */\n    for (let pageIndex = 4607; pageIndex <= pageTotal; pageIndex++) {\n      const url = 'http://radar.itjuzi.com/company/infonew?page=' + pageIndex;\n\n      console.log('loading sku id list...', url);\n      const result = await superagent.get(url)\n        .charset('utf-8')\n        .set('Accept', 'application/json, text/javascript, */*; q=0.01')\n        .set('Accept-Encoding', 'gzip, deflate')\n        .set('Accept-Language', 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7,la;q=0.6')\n        .set('Connection', 'keep-alive')\n        .set('Content-Type', 'application/json')\n        .set('Cookie', 'acw_tc=AQAAAGshIF5+SQkAgBRVtAc/OfhcZix7; session=155f09703c3a3786ff877d7326ca4f53ecd28900; _ga=GA1.2.736923528.1526300023; _gid=GA1.2.634053336.1526300023; Hm_lvt_1c587ad486cdb6b962e94fc2002edf89=1526300024; gr_user_id=d7d0936e-8a7d-4d6d-a8c7-113060e51c59; gr_session_id_eee5a46c52000d401f969f4535bdaa78=f117e8f4-0581-4c9a-a682-712cca9bf39b_true; identity=626786864@qq.com; remember_code=gomCYuIuWw; unique_token=34734; user-radar.itjuzi.com={\"n\":\"AARON\",\"v\":0}; Hm_lvt_80ec13defd46fe15d2c2dcf90450d14b=1526300028; MEIQIA_EXTRA_TRACK_ID=14ayTXwycB1BZ9zGVG8QpTfIZcA; Hm_lpvt_80ec13defd46fe15d2c2dcf90450d14b=1526300086; Hm_lpvt_1c587ad486cdb6b962e94fc2002edf89=1526300092')\n        .set('Host', 'radar.itjuzi.com')\n        .set('Referer', 'http://radar.itjuzi.com/company')\n        .set('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36')\n        .set('X-Requested-With', 'XMLHttpRequest');\n\n      if (result.status === 200) {\n        cookie = result.header['set-cookie']; // 从response中得到cookie\n        // console.log(cookie)\n        text = eval('(' + result.text + ')');\n        // text = decodeUnicode(res.text);\n        // text = 'http:%/%/cdn.itjuzi.com%/images%/ad93971d493851e6b5e8f14d26f0f2eb.png'.replace(\"\\%\",\"\");\n        // console.log(text)\n        // console.log(text.substring(850,856) )\n        // text = JSON.parse(text)\n        // console.log(text)\n        pageNum = text.data.page_num + 1;\n        pageTotal = text.data.page_total;\n        if (text.status === 1) {\n          if (text.data.rows.lenght > 0) {\n\n          }\n        } else {\n          if (stopPage !== 0) {\n            stopPage = pageNum;\n          }\n          console.log('err stopPage:', stopPage);\n        }\n      }\n      // console.log('res:', res);\n      const model = this.mongo('company');\n      const res = await model.addMany(text.data.rows);\n\n      console.log('res:', res);\n\n      // console.log(text.data.rows[0]);\n      // console.log(text.data.page_total);\n      console.log('successfully!', 'pageIndex:', pageIndex);\n      // console.log()\n    }\n\n    // console.log('over')\n    // think.http(\"/home/getcomments/start\", true);\n    // console.log('start getComments...')\n\n    return this.success();\n  }\n}\n\n// function decodeUnicode(str) {\n//   str = str.replace(/(^\\s*)|(\\s*$)/g, '');\n//   str = str.replace(/\\\\/g, '%');\n//   return unescape(str);\n// }\n// res: [ '5afaebc7a147f8cb35a307dd',\n//   '5afaebc7a147f8cb35a307de',\n//   '5afaebc7a147f8cb35a307df',\n//   '5afaebc7a147f8cb35a307e0',\n//   '5afaebc7a147f8cb35a307e1',\n//   '5afaebc7a147f8cb35a307e2',\n//   '5afaebc7a147f8cb35a307e3',\n//   '5afaebc7a147f8cb35a307e4',\n//   '5afaebc7a147f8cb35a307e5',\n//   '5afaebc7a147f8cb35a307e6',\n//   '5afaebc7a147f8cb35a307e7',\n//   '5afaebc7a147f8cb35a307e8',\n//   '5afaebc7a147f8cb35a307e9',\n//   '5afaebc7a147f8cb35a307ea',\n//   '5afaebc7a147f8cb35a307eb',\n//   '5afaebc7a147f8cb35a307ec',\n//   '5afaebc7a147f8cb35a307ed',\n//   '5afaebc7a147f8cb35a307ee',\n//   '5afaebc7a147f8cb35a307ef',\n//   '5afaebc7a147f8cb35a307f0' ]\n// successfully! pageIndex: 904"
+    ]
+}
